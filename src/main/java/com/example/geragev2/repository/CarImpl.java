@@ -25,18 +25,21 @@ public class CarImpl implements CarRepository {
     }
 
     @Override
-    public void saveCar(Car car) {
+    public Car saveCar(Car car) {
         jdbcTemplate.update(SAVE_CAR.query, car.getNumber(), car.getBrand(), car.getModel(), car.getColor());
+        return car;
     }
 
     @Override
-    public void updateCar(Car car, int carId) {
+    public Car updateCar(Car car, int carId) {
         jdbcTemplate.update(UPDATE_CAR.query + carId,
                 car.getNumber(), car.getBrand(), car.getModel(), car.getColor());
+        return car;
     }
 
     @Override
-    public void deleteCar(int carId) {
+    public Car deleteCar(int carId) {
         jdbcTemplate.execute(DELETE_CAR.query + carId);
+        return null;
     }
 }

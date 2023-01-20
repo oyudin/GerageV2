@@ -13,11 +13,11 @@ public interface PersonRepository {
 
     List<Person> getAllPersons();
 
-    void savePerson(Person person);
+    Person savePerson(Person person);
 
-    void deletePerson(int id);
+    Person deletePerson(int id);
 
-    void updatePerson(Person person, int id);
+    Person updatePerson(Person person, int id);
 
     void addCarToPerson(int carId, int personId);
 }

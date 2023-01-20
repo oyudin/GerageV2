@@ -28,27 +28,28 @@ public class PersonService {
     }
 
 
-    public void getPersonById(int personId) throws PersonNotFound {
+    public Person getPersonById(int personId) throws PersonNotFound {
         Person person = personRepository.getPersonById(personId);
         if (person == null) throw new PersonNotFound(personId);
+        return person;
     }
 
 
-    public void addPerson(Person person) {
-        personRepository.savePerson(person);
+    public Person addPerson(Person person) {
+        return personRepository.savePerson(person);
     }
 
 
-    public void updatePerson(Person person, int personId) throws PersonNotFound {
+    public Person updatePerson(Person person, int personId) throws PersonNotFound {
         personRepository.updatePerson(person, personId);
         if (person == null) throw new PersonNotFound(personId);
+        return person;
     }
 
 
-    public void deletePerson(int id) {
-        personRepository.deletePerson(id);
+    public Person deletePerson(int id) {
+        return personRepository.deletePerson(id);
     }
-
 
 
     public void addCarToPerson(int personId, int carId) {

@@ -52,22 +52,3 @@ public class CarServiceTest {
         Assertions.assertEquals(1, cars.size());
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

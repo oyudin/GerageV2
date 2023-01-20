@@ -20,13 +20,15 @@ public class CarService {
         return carRepository.findAllCars();
     }
 
-    public void addCar(Car car) {
+    public Car addCar(Car car) {
         carRepository.saveCar(car);
+        return car;
     }
 
-    public void updateCar(Car car, int carId) throws CarNotFound {
+    public Car updateCar(Car car, int carId) throws CarNotFound {
         carRepository.updateCar(car, carId);
         if (car == null) throw new CarNotFound(carId);
+        return car;
     }
 
     public void deleteCar(int id) {

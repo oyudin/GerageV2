@@ -9,9 +9,9 @@ public interface CarRepository {
 
     List<Car> findAllCars();
 
-    void saveCar(Car car);
+    Car saveCar(Car car);
 
-    void updateCar(Car car, int id);
+    Car updateCar(Car car, int id);
 
-    void deleteCar(int id);
+    Car deleteCar(int id);
 }

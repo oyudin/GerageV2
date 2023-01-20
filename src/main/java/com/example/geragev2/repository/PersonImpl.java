@@ -37,19 +37,22 @@ public class PersonImpl implements PersonRepository {
     }
 
     @Override
-    public void savePerson(Person person) {
+    public Person savePerson(Person person) {
         jdbcTemplate.update(SAVE_PERSON.query, person.getName(), person.getSurname());
+        return person;
     }
 
     @Override
-    public void deletePerson(int personId) {
+    public Person deletePerson(int personId) {
         this.jdbcTemplate.execute(DELETE_PERSON.query + personId);
+        return null;
     }
 
 
     @Override
-    public void updatePerson(Person person, int personId) {
+    public Person updatePerson(Person person, int personId) {
         jdbcTemplate.update(UPDATE_PERSON.query + personId, person.getName(), person.getSurname());
+        return person;
     }
 
     @Override
